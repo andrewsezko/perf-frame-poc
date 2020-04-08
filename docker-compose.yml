@@ -25,6 +25,7 @@ services:
     hostname: grafana
     ports:
       - "3000:3000"
+    user: "${UID}:${GID}"
     volumes:
       - ./grafana/data:/var/lib/grafana   # persistent storage
     environment:
@@ -37,6 +38,7 @@ services:
     hostname: jenkins
     ports:
       - "8080:8080"
+    user: "${UID}:${GID}"
     volumes:
       - ./jenkins/jenkins_home:/var/jenkins_home    # persistent storage
       - /var/run/docker.sock:/var/run/docker.sock   # Docker daemon UNIX socket link
