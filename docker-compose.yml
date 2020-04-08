@@ -21,7 +21,6 @@ services:
 
   view:
     image: grafana/grafana:6.7.0
-    user: "${UID}:${GID}"
     container_name: grafana
     hostname: grafana
     ports:
