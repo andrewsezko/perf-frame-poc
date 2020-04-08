@@ -2,7 +2,6 @@ version: '3'
 services:
   storage:
     image: influxdb:1.7
-    user: "${UID}:${GID}"
     container_name: influxdb
     hostname: influxdb
     ports:
@@ -13,15 +12,14 @@ services:
     environment:
       - INFLUXDB_HTTP_AUTH_ENABLED=true
       - INIT_USERS=true
-      - INFLUXDB_LOGGING_LEVEL=error
       - INFLUXDB_ADMIN_ENABLED=true
       - INFLUXDB_ADMIN_USER=ADMIN
       - INFLUXDB_ADMIN_PASSWORD=ADMIN123
+      - INFLUXDB_LOGGING_LEVEL=error
     restart: on-failure
 
   view:
     image: grafana/grafana:6.7.0
-    user: "${UID}:${GID}"
     container_name: grafana
     hostname: grafana
     ports:
@@ -34,7 +32,6 @@ services:
 
   ci:
     build: ./jenkins
-    user: "${UID}:${GID}"
     container_name: jenkins
     hostname: jenkins
     ports:
