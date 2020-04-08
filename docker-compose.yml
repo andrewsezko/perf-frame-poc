@@ -2,7 +2,6 @@ version: '3'
 services:
   storage:
     image: influxdb:1.7
-    user: "${UID}:${GID}"
     container_name: influxdb
     hostname: influxdb
     ports:
@@ -35,7 +34,6 @@ services:
 
   ci:
     build: ./jenkins
-    user: "${UID}:${GID}"
     container_name: jenkins
     hostname: jenkins
     ports:
