@@ -1,5 +1,6 @@
 # Dockerized Telegraf agent start command
-```sudo docker run -d --name=telegraf \
+```
+sudo docker run -d --name=telegraf \
       -e HOST_MOUNT_PREFIX=/hostfs \
       -e HOST_PROC=/hostfs/proc \
       -v /:/hostfs:ro \
